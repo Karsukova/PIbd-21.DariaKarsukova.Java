@@ -1,4 +1,4 @@
-package laba1;
+package laba2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 public class FormPlane extends JFrame {
 
 	private JPanel contentPane;
-	private FighterPlane fighter;
+	private IFighter fighter;
 	/**
 	 * Launch the application.
 	 */
@@ -40,7 +40,7 @@ public class FormPlane extends JFrame {
 		super.paint(g);
 		try {
 			if (fighter != null) {
-				fighter.DrawFighter(g);
+				fighter.Draw(g);
 			}
 		}
 		catch(Exception ex){
@@ -55,22 +55,22 @@ public class FormPlane extends JFrame {
 			switch (name)
 			{
             	case "Up":
-            		fighter.moveTransport(Direction.Up);
+            		fighter.MoveTransport(Direction.Up);
             		break;
             	case "Down":
-            		fighter.moveTransport(Direction.Down);
+            		fighter.MoveTransport(Direction.Down);
             		break;
             	case "Left":
-            		fighter.moveTransport(Direction.Left);
+            		fighter.MoveTransport(Direction.Left);
             		break;
             	case "Right":
-            		fighter.moveTransport(Direction.Right);
+            		fighter.MoveTransport(Direction.Right);
             		break;
 			}
 			this.repaint();
 		}
 		catch (Exception ex) {	
-			System.out.print("Самолёт не создан");			
+			System.out.print("Самолет не создан");			
 		}
 	}
 	
@@ -86,29 +86,51 @@ public class FormPlane extends JFrame {
 		contentPane.setLayout(null);
 					
 		
-		JButton buttonCreate = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C");
+		JButton buttonCreate = new JButton("Создать истребитель");
 		buttonCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 	            try {
-					fighter = new FighterPlane(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), Color.YELLOW, Color.RED, true);
+					fighter = new FighterPlane(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), Color.CYAN, Color.GRAY, true, true);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	            
 	            try {
-					fighter.setPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
+					fighter.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	            
-	            FormPlane.this.repaint(); 
+	            FormPlane.this.repaint();
 			}
 		});
-		buttonCreate.setBounds(10, 11, 89, 42);
+		buttonCreate.setBounds(10, 11, 150, 42);
 		contentPane.add(buttonCreate);		
 		
+		JButton buttonCreateBase = new JButton("Создать самолёт");
+		buttonCreateBase.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {				
+	            try {
+					fighter = new Airplane(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), Color.CYAN);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            
+	            try {
+					fighter.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            
+	            FormPlane.this.repaint();
+			}
+		});
+		buttonCreateBase.setBounds(170, 11, 150, 42);
+		contentPane.add(buttonCreateBase);			
 		
 		JButton buttonUp = new JButton("");
 		buttonUp.setToolTipText("Up");

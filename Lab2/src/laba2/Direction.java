@@ -1,4 +1,4 @@
-package laba1;
+package laba2;
 
 public enum Direction
 {

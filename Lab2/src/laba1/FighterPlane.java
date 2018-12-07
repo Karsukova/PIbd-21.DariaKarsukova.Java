@@ -5,13 +5,44 @@ import java.awt.Graphics;
 
 public class FighterPlane extends Airplane {
 
+
+	private int MaxSpeed;
+
+	public int getMaxSpeed() {
+		return MaxSpeed;
+	}
+
+	public void setMaxSpeed(int value) {
+		MaxSpeed = value;
+	}
+
+	private float Weight;
+
+	public float getWeight() {
+		return Weight;
+	}
+
+	public void setWeight(float value) {
+		Weight = value;
+	}
+
+	private Color MainColor;
+
+	public Color getMainColor() {
+		return MainColor;
+	}
+
+	public void setMainColor(Color value) {
+		MainColor = value;
+	}
+
 	private Color DopColor;
 
-	public Color getAddColor() {
+	public Color getDopColor() {
 		return DopColor;
 	}
 
-	public void setAddColor(Color value) {
+	public void setDopColor(Color value) {
 		DopColor = value;
 	}
 
@@ -35,37 +66,39 @@ public class FighterPlane extends Airplane {
 		Line = value;
 	}
 
-	public FighterPlane(int maxSpeed, float weight, Color mainColor, Color addColor, boolean weapon, boolean line) {
+	public FighterPlane(int maxSpeed, float weight, Color mainColor, Color dopColor, boolean weapon, boolean line) {
 		super(maxSpeed, weight, mainColor);
 		MaxSpeed = maxSpeed;
 		Weight = weight;
 		MainColor = mainColor;
-		DopColor = addColor;
+		DopColor = dopColor;
 		Weapon = weapon;
 		Line = line;
 
 	}
 
+	
+	
 	@Override
-	public void DrawFighter(Graphics g) {
-		g.setColor(Color.RED);
+	public  void DrawFighter(Graphics g) {
+		g.setColor(DopColor);
 		if (Weapon) {
+			g.setColor(DopColor);
+			g.fillOval((int) StartPosX + 145/ 3 , (int) StartPosY + 40/ 3 , (int) 7/ 3 , (int) 25/ 3);
+			g.fillOval((int) StartPosX + 134/ 3 , (int) StartPosY + 35/ 3 , (int) 7/ 3, (int) 25/ 3);
+			g.fillOval((int) StartPosX + 122/ 3, (int) StartPosY + 32/ 3, (int) 7/ 3, (int) 25/ 3);
 
-			g.fillOval((int) StartPosX + 145, (int) StartPosY + 40, (int) 7, (int) 25);
-			g.fillOval((int) StartPosX + 134, (int) StartPosY + 35, (int) 7, (int) 25);
-			g.fillOval((int) StartPosX + 122, (int) StartPosY + 32, (int) 7, (int) 25);
-
-			g.fillOval((int) StartPosX + 48, (int) StartPosY + 40, (int) 7, (int) 25);
-			g.fillOval((int) StartPosX + 59, (int) StartPosY + 35, (int) 7, (int) 25);
-			g.fillOval((int) StartPosX + 70, (int) StartPosY + 32, (int) 7, (int) 25);
+			g.fillOval((int) StartPosX + 48/ 3 , (int) StartPosY + 40/ 3, (int) 7/ 3, (int) 25/ 3);
+			g.fillOval((int) StartPosX + 59/ 3 , (int) StartPosY + 35/ 3 , (int) 7/ 3, (int) 25/ 3);
+			g.fillOval((int) StartPosX + 70/ 3 , (int) StartPosY + 32/ 3 , (int) 7/ 3, (int) 25/ 3);
 
 		}
 		super.DrawFighter(g);
 
 		if (Line) {
-			g.setColor(Color.RED);
-			g.drawLine((int) StartPosX + 100, (int) StartPosY + 125, (int) StartPosX + 100, (int) StartPosY + 40);
-			g.drawLine((int) StartPosX + 80, (int) StartPosY + 105, (int) StartPosX + 120, (int) StartPosY + 105);
+			g.setColor(DopColor);
+			g.drawLine((int) StartPosX + 100/ 3, (int) StartPosY + 125/ 3, (int) StartPosX + 100/ 3, (int) StartPosY + 40/ 3 );
+			g.drawLine((int) StartPosX + 80/ 3, (int) StartPosY + 105/ 3, (int) StartPosX + 120/ 3, (int) StartPosY + 105/ 3 );
 		}
 
 	}

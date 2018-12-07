@@ -6,7 +6,7 @@ import java.awt.*;
 public class JPanelHangar extends JPanel {
     private Hangar<IFighter> hangar;
 
-    public void setDepot(Hangar hangar)
+    public void setHangar(Hangar hangar)
     {
        this.hangar = hangar;
   }

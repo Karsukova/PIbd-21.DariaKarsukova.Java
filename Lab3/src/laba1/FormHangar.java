@@ -45,7 +45,7 @@ public class FormHangar extends JFrame {
         contentPane.add(panelHangar);
 
         hangar = new Hangar<IFighter>(15, panelHangar.getWidth(), panelHangar.getHeight());
-        panelHangar.setDepot(hangar);
+        panelHangar.setHangar(hangar);
 
         JButton buttonSetFighterPlane = new JButton("Создать истребитель");
         buttonSetFighterPlane.addActionListener(new ActionListener() {

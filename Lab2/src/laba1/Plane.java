@@ -1,4 +1,4 @@
-package laba2;
+package laba1;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -42,7 +42,7 @@ public abstract class Plane implements IFighter {
     	MainColor = value;
     }
 
-    public void SetPosition(int x, int y, int width, int height)
+    public void setPosition(int x, int y, int width, int height)
     {
         StartPosX = x;
         StartPosY = y;
@@ -50,8 +50,8 @@ public abstract class Plane implements IFighter {
         PictureHeight = height;
     }
 
-    public abstract void Draw(Graphics g);
+    public abstract void DrawFighter(Graphics g);
 
-    public abstract void MoveTransport(Direction direction);
+    public abstract void moveTransport(Direction direction);
 }
 

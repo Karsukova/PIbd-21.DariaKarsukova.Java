@@ -1,4 +1,4 @@
-package laba2;
+package laba1;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +40,7 @@ public class FormPlane extends JFrame {
 		super.paint(g);
 		try {
 			if (fighter != null) {
-				fighter.Draw(g);
+				fighter.DrawFighter(g);
 			}
 		}
 		catch(Exception ex){
@@ -55,22 +55,22 @@ public class FormPlane extends JFrame {
 			switch (name)
 			{
             	case "Up":
-            		fighter.MoveTransport(Direction.Up);
+            		fighter.moveTransport(Direction.Up);
             		break;
             	case "Down":
-            		fighter.MoveTransport(Direction.Down);
+            		fighter.moveTransport(Direction.Down);
             		break;
             	case "Left":
-            		fighter.MoveTransport(Direction.Left);
+            		fighter.moveTransport(Direction.Left);
             		break;
             	case "Right":
-            		fighter.MoveTransport(Direction.Right);
+            		fighter.moveTransport(Direction.Right);
             		break;
 			}
 			this.repaint();
 		}
 		catch (Exception ex) {	
-			System.out.print("Самолет не создан");			
+			System.out.print("Самолёт не создан");			
 		}
 	}
 	
@@ -97,7 +97,7 @@ public class FormPlane extends JFrame {
 				}
 	            
 	            try {
-					fighter.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
+					fighter.setPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -120,7 +120,7 @@ public class FormPlane extends JFrame {
 				}
 	            
 	            try {
-					fighter.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
+					fighter.setPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormPlane.this.getWidth(), FormPlane.this.getHeight());					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
